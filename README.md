@@ -71,3 +71,10 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Providers, Service란
+
+### Providers 란
+
+프로바이더는 Nest의 기본 개념입니다. 대부분의 기본 Nest 클래스는 서비스, 리포지토리 팩토리 헬퍼등 프로바이더로 취급될 수 있습니다
+프로바이더의 주용 아이디어는 종속성으로 주입 할 수 있다는 것입니다 즉 객체는 서로 다양한 관계를 만들 수 있으며 객체의 인스턴스를 연결하는 기능은 대부분 Nest런타임 시스템에 위임될 수 있습니다.
