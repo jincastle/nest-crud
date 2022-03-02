@@ -15,7 +15,10 @@ export class BoardsController {
   // }
 
   //private 사용이유는 이  클래스 안에서만 사용하기 위헤
-  constructor(private boardsService: BoardsService){}
+  constructor(private boardsService: BoardsService) {}
 
-    this.boardsService.getAllBoards();
+  @Get()
+  getAllBoard() {
+    return this.boardsService.getAllBoards();
+  }
 }
