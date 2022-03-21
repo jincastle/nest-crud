@@ -26,8 +26,19 @@ export class BoardsService {
     return board;
   }
 
-  //특정 게시물 가져오기
+  //특정 게시물 가져오기(find : 찾기)
   getBoardById(id: string): Board {
     return this.boards.find((board) => board.id === id);
+  }
+
+  //게시물 삭제(filter : 필터링) : id가 다른것만 남겨준다
+  deleteBoard(id: string): void {
+    this.boards = this.boards.filter((board) => board.id !== id);
+  }
+
+  updateBoardStatus(id: string, status: BoardStatus): Board {
+    const board = this.getBoardById(id);
+    board.status = status;
+    return board;
   }
 }
