@@ -125,3 +125,19 @@ import {v1 as uuid} from 'uuid;
 
 @Body body를 이용해서 가져온다
 이렇게 하면 모든 request에서 보내온 값을 가져올 수 있으며 하나씩 가져오려면 @Body('title') title 혹은 @Body('description') description 이런식으로 가져오면 된다.
+
+## DTO(data transfer Object)
+
+### DTO는
+
+계층간 데이터 교환을 위한 객체
+DB에서 데이터를 얻어 service나 Controller 등으로 보낼때 사용하는 객체를 말합니다
+DTO는 데이터가 네트워크를 통해 전송되는 방법을 정의하는 객체입니다.
+interface나 class를 이용해서 정의 될 수 있습니다.(하지만 클래스를 이용하는것을 nestjs에서는 추천하고 있습니다.)
+
+### DTO를 쓰는 이유
+
+- 데이터 유효성을 체크하는데 효율적입니다.
+- 더 안정적인 코드를 만들어 줍니다. 타입스크립트의 타입으로도 사용
+
+### DTO는 약간 인터페이스 같은거
