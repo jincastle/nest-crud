@@ -140,4 +140,46 @@ interface나 class를 이용해서 정의 될 수 있습니다.(하지만 클래
 - 데이터 유효성을 체크하는데 효율적입니다.
 - 더 안정적인 코드를 만들어 줍니다. 타입스크립트의 타입으로도 사용
 
-### DTO는 약간 인터페이스 같은거
+## Nestjs Pipe
+
+파이프는 @injectable() 데코레이터로 주석이 달린 클래스 입니다
+파이프는 data transformation과 data validation을 위해서 사용
+파이프는 컨트롤러 경로 처리기에 의해 처리되는 인수에 대해 작동
+
+nest는 메소드가 호출되기 직전에 파이프를 삽입하고 파이프는 메소드로 향하는 인수를 수신하고 이에 대해 작동합니다
+
+client -> pipe -> 통과 -> 결과값 -> client
+
+### data transformation
+
+입력 데이터를 원하는 형식으로 변환
+만약 숫자를 받길 원하는데 문자열 형식으로 온다면 파이프에서 자동으로 숫자로 바꿔줍니다.
+string to integer
+string '6' => integer 6
+
+### data validation
+
+입력 데이터를 평가하고 유효한 경우 변경되지 않는 상태로 전달하면 됩니다. 그렇지 않으면 데이터가 올바르지 않을 때 예외를 발생시킵니다.
+
+만약 이름의 길이가 10자 이하여야 하는데 10자 이상되면 에러를 발생
+
+---
+
+파이프는 위에 두가지 모든 경우에서
+라우트 핸들러가 처리하는 인수에 대해서 작동합니다
+그리고 파이프는 메소드를 바로 직전에 작동해서 메소드로 향하는 인수에 대해서 변환할 것이 있으면 변환하고 유효성 체크를 위해서도 호출
+
+### PIPE 사용하는 법(Binding Pipes)
+
+파이프를 사용하는 방법(Binding pipes)은 세가지로 나눠질수 있습니다.
+handler-level pipes, parameter-level pipes, global-level pipes 입니다
+이름에서 말하는 것 그대로 ㅎ핸들러 레벨, 파라미터 레벨, 글로벌 레벨로 파이프 사용할 수 있습니다.
+
+### Nestjs에서는 기본적으로 6가지 제공
+
+- ValidationPipe
+- ParseIntPipe
+- ParseBoolPipe
+- ParseArrayPipe
+- ParseUUIDPipe
+- DefaultValuePipe
