@@ -183,3 +183,12 @@ handler-level pipes, parameter-level pipes, global-level pipes 입니다
 - ParseArrayPipe
 - ParseUUIDPipe
 - DefaultValuePipe
+
+### 유효성 검사
+
+파이프 모듈 설치(class-validator, class-transformer)
+npm install class-validator class-transformer --save
+
+https://github.com/typestack/class-validator
+
+### 특정게시물을 찾을때 없는 경우
